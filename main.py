@@ -7,6 +7,7 @@ from llama_index.core import (
     load_index_from_storage,
 )
 import openai
+from openai import OpenAI
 from concurrent.futures import ThreadPoolExecutor
 from dotenv import load_dotenv
 
@@ -19,7 +20,7 @@ if not OPENAI_API_KEY:
         "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable."
     )
     
-openai.api_key = OPENAI_API_KEY
+openai = OpenAI(api_key=OPENAI_API_KEY)
 
 PERSIST_DIR = "./query-engine-storage"
 DATA_DIR = "./data"
