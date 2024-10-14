@@ -44,7 +44,7 @@ async def load_llama_index() -> VectorStoreIndex:
 
 def get_chat_completion_sync(query_res: str, user_query: str) -> str:
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
